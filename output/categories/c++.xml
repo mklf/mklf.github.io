@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mklf (文章分类：c++)</title><link>http://blog.fangli.org/</link><description></description><atom:link href="http://blog.fangli.org/categories/c%2B%2B.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><lastBuildDate>Fri, 12 Jan 2018 16:16:05 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>C++ 对象模型</title><link>http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div&gt;&lt;p&gt;我觉得学习中最幸福的时刻是 "aha moment": 当你弄懂一个思考很久的知识点，然后发现以前郁结于心的很多问题都解释得通了的那一刻。在我学习C++的经历中，印象最深的"aha moment"当属弄懂对象模型的时刻,因此当我想写关于C++的博客时，我决定利用"贪婪算法":先写我觉得最有趣的东西。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;本篇博客中的例子都是用 clang3.5在 MacOSX 10.11 64位下编译得到，有些例子在不同的系统和编译器下可能结果不同&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;C++ 中最简单的对象类型是 Plain Old Data (POD)类型，例如下面这个结构体：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;这样的结构体和C语言的结构体别无二致,它没有构造函数和析构函数，它包含的数据都是原始类型，它也没有继承别的类。像上面的这种C++结构体是和C兼容的，可以用C语言的内存函数如&lt;code&gt;memcpy，memset&lt;/code&gt;来操作这个结构体。它的内存布局也相对简单，结构体的大小就是结构体内元素的大小加上内存对齐。比如上面的toy这个结构体，用&lt;code&gt;sizeof(toy)&lt;/code&gt;可以得到它的大小为8(Bytes),即两个&lt;code&gt;int&lt;/code&gt;型变量的大小的和，如果把toy里b的类型改为&lt;code&gt;char&lt;/code&gt;型，虽然一个&lt;code&gt;int&lt;/code&gt;加上一个&lt;code&gt;char&lt;/code&gt;大小是5，但是由于内存对齐的要求，仍然要为toy分配8字节的内存，C++标准要求类中的数据布局和变量的声明顺序一致，在toy 中，由于a先声明，b后声明，在toy的实例中，a也要在前，b在后，地址由低到高。这里面隐藏的一个问题是，由于a占了前4个字节，b 只占一个字节，它在后面4个字节任何位置都是对齐的，那么编译器会把b放在哪里呢？可以用下面的程序验证：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt; &lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="n"&gt;toy&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sc"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;reinterpret_cast&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s"&gt;":"&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s"&gt;" "&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+ &lt;span class="cm"&gt;/*输出:&lt;/span&gt;
+&lt;span class="cm"&gt;    5:a 6: 7: 8:&lt;/span&gt;
+&lt;span class="cm"&gt; */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;上面的程序输出了t从第5个字节起的所有值，注意 6,7,8内存位置都是不可打印的值，5号位置是程序main函数第二行写入b的值。也就是说b的内存是在后四个字节的起始位置。另一种情况是，如果在toy中再增加一个&lt;code&gt;int16_t&lt;/code&gt; 类型的数据，它是在第6,7个字节吗？注意这个时候由于它是需要对齐的，它的大小是2个字节，因此它应该对齐在第7个字节的内存位置。第6号位置就被跳过了，这时的toy内存布局为:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;address&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+    &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;      &lt;span class="kt"&gt;int&lt;/span&gt;      &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;   &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="kt"&gt;int16_t&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href="http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/"&gt;更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;</description><category>c++</category><guid>http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</guid><pubDate>Mon, 26 Sep 2016 05:33:14 GMT</pubDate></item></channel></rss>

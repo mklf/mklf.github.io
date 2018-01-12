@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " vocab="http://ogp.me/ns" lang="zh_cn">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><!--<![endif]--><head>
+<meta charset="utf-8">
+<!-- http://t.co/dKP3o1e --><meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本周阅读 2017年06月23日 | mklf</title>
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/extra.css" rel="stylesheet" type="text/css">
+<!-- Webfonts --><link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+<!-- Load Modernizr --><script src="../../assets/js/modernizr-2.6.2.custom.min.js"></script><link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/">
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+         processEscapes: true
+     },
+     Tex:{
+        equationNumbers: { autoNumber: "AMS" }
+     },
+     showMathMenu: false,
+     showMathMenuMISE:false,
+     messageStyle:"none",
+     displayAlign: 'center', // Change this to 'center' to center equations.
+     "HTML-CSS": {
+         styles: {'.MathJax_Display': {"margin": 0}},
+         linebreaks:{automatic:true,width:"container"}
+     },
+     SVG:{linebreaks:{automatic:true}}
+ });
+ </script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><link href="../../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="author" content="Frank Lee">
+<link rel="prev" href="../chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" title="抽样方法(2)--拒绝抽样和高斯分布" type="text/html">
+<link rel="next" href="../ben-zhou-yue-du-2017nian-07yue-3ri/" title="本周阅读 2017年07月3日" type="text/html">
+<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><meta property="og:site_name" content="mklf">
+<meta property="og:title" content="本周阅读 2017年06月23日">
+<meta property="og:url" content="http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/">
+<meta property="og:description" content="1.Unified Memory for CUDA Beginners
+一个简单的程序：用 Unified Memory 创建两个向量，在 CPU 上进行初始化，然后用 GPU kernel 计算向量加法。作者发现在 Kepler 架构的 K80 上，向量加法的 kernel 带宽能达到 134GB/s，而在 Pascal 架构的 Tesla P100 上却只有 6GB/s。这是什么原因造成的呢？">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-06-23T10:11:05+08:00">
+<meta property="article:tag" content="阅读清单">
+</head>
+<body id="post-index" class="feature">
+<a href="#content" class="sr-only sr-only-focusable">跳到主内容</a>
+    
+
+    <nav id="dl-menu" class="dl-menuwrapper" role="navigation"><button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+<li><a href="../../archive.html">存档</a></li>
+            <li><a href="../../categories/">分类</a></li>
+            <li><a href="../../rss.xml">RSS</a></li>
+    
+    
+    </ul></nav><div class="entry-header">
+<!-- FIXME: get credit from settings -->
+    <div class="entry-image">
+      <img src="../../images/beijing.jpg" alt="Latest Posts">
+</div>
+<!-- /.entry-image -->
+      
+  <div class="header-title">
+    <div class="header-title-wrap">
+    <h1 id="brand"><a href="http://blog.fangli.org/" title="mklf" rel="home">
+    mklf</a></h1>
+      <h2>本周阅读 2017年06月23日</h2>
+    </div>
+<!-- /.header-title-wrap -->
+  </div>
+<!-- /.header-title -->
+
+</div>
+<!-- /.entry-header -->
+
+    <div id="main" role="main">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><div class="entry-meta">
+            <span class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-06-23T10:11:05+08:00" itemprop="datePublished" title="2017-06-23 10:11">2017-06-23 10:11</time></a></span>  ·  
+            <span class="byline author vcard">Frank Lee</span>  ·  
+            
+
+        </div>
+        
+
+    
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">本周阅读 2017年06月23日</a></h1>
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h4><a href="https://devblogs.nvidia.com/parallelforall/unified-memory-cuda-beginners/">1.Unified Memory for CUDA Beginners</a></h4>
+<p>一个简单的程序：用 Unified Memory 创建两个向量，在 CPU 上进行初始化，然后用 GPU kernel 计算向量加法。作者发现在 Kepler 架构的 K80 上，向量加法的 kernel 带宽能达到 134GB/s，而在 Pascal 架构的 Tesla P100 上却只有 6GB/s。这是什么原因造成的呢？</p>
+<p>在 Pascal 架构以前， Unified Memory 在创建时会在 GPU 中分配显存，设置好页表等初始化操作。当 CPU 代码访问这片显存时，显卡驱动会把显存中的内容拷贝到内存中 (会有CPU页错误)。此后如果 GPU 又需要访问这片内存，驱动会先把<strong>整块内存</strong>拷贝到GPU，然后再启动kernel。也就是说内存拷贝的时间是不计入kernel 运行时间的。</p>
+<p>Pascal 架构的 GPU 增加了硬件以提供对 Unified Memory 的支持。在调用<code>cudaMallocManaged()</code>时并不会真正在显存中分配内存。内存真正的分配被延迟到CPU 或者GPU 访问它的时候。由于支持页错误和页的移动(migration)，Pascal GPU 的kernel在访问一个内存中的 Unified Memory 时不需要提前把内存中的数据拷贝到显存中，而是在 kernel 中访问内存时才按页拷贝(当然会有数据预取减少页错误)。这种内存访问方式对于只利用部分内存的应用，比如对稀疏矩阵的某些操作，只需要在内存和显存间传输需要读写的部分数据。
+<!-- TEASER_END --></p>
+<p>如何提高 Pascal GPU 上的带宽:</p>
+<ol>
+<li>直接在 GPU 上 初始化内存</li>
+<li>利用<code>cudaMemPrefetchAsync</code> 在CPU 初始化完成后将数据显式的传输 显存中。</li>
+</ol>
+<hr>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li>
+            <a class="fa fa-tags" href="../../categories/yue-du-qing-dan/" rel="tag">阅读清单</a>
+        </li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="fa fa-book">
+                <a href="../chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" rel="prev" title="抽样方法(2)--拒绝抽样和高斯分布">前一篇: 抽样方法(2)--拒绝抽样和高斯分布</a>
+            </li>
+            <li class="fa fa-book">
+                <a href="../ben-zhou-yue-du-2017nian-07yue-3ri/" rel="next" title="本周阅读 2017年07月3日">后一篇: 本周阅读 2017年07月3日</a>
+            </li>
+        </ul></nav></aside><section class="comments"><script>
+var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
+var idcomments_post_id = "cache/posts/ben-zhou-yue-du-2017nian-06yue-23ri.html";
+var idcomments_post_url = "http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/";
+</script><span id="IDCommentsPostTitle" style="display:none"></span>
+<script src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></section><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+     tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+         processEscapes: true
+     },
+     Tex:{
+        equationNumbers: { autoNumber: "AMS" }
+     },
+     showMathMenu: false,
+     showMathMenuMISE:false,
+     messageStyle:"none",
+     displayAlign: 'center', // Change this to 'center' to center equations.
+     "HTML-CSS": {
+         styles: {'.MathJax_Display': {"margin": 0}},
+         linebreaks:{automatic:true,width:"container"}
+     },
+     SVG:{linebreaks:{automatic:true}}
+ });
+ </script></article>
+</div>
+    
+    <div class="footer-wrapper">
+        <footer role="contentinfo"><p>Contents © 2018         <a href="mailto:golifang123@163.com">Frank Lee</a>- Powered by Nikola theme hpstr         <span id="busuanzi_container_site_pv">pv:<span id="busuanzi_value_site_pv"></span></span></p>
+            
+        </footer>
+</div>
+
+    
+<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });
+</script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="../../assets/js/scripts.min.js"></script>
+</body>
+</html>
