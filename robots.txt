@@ -1,0 +1,4 @@
+Sitemap: http://blog.fangli.org/sitemapindex.xml
+
+User-Agent: *
+Host: blog.fangli.org

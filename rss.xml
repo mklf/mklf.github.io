@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mklf</title><link>http://blog.fangli.org/</link><description>Frank Lee 的树洞</description><atom:link href="http://blog.fangli.org/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><lastBuildDate>Fri, 12 Jan 2018 16:16:05 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>本周阅读 2017年07月3日</title><link>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-07yue-3ri/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="http://www.bjt.name/2017/07/interview-xiamen"&gt;1. 饭桌上的闲聊&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;业务知识在我们平时的学习生活中是碰不到的，我们该怎么获取相关的知识呢？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;多认识人，多去看、多去想。多认识人就不必多说重要性了。举个多思考的例子：我是哔哩哔哩的重度用户，在逛B站的过程中就会去想，这个系统的设计，模块的关系，以及对应算法怎么去做的；还有网易云音乐，它每个环节的设计，比如用户的评论环节，它能收集到什么样的数据，它的算法能怎么做，数据收集的机制有没有可能做一些改变？&lt;/p&gt;
+&lt;p&gt;我认为这是心智的一种锻炼，一开始可能会比较吃力，但你要持续去锻炼这个能力，你要不停去抽象。碰到的问题能不能把它抽象成一个数据问题、数学模型和建模问题。这个能力需要经常去锻炼。早年我觉得哪些数据可能有点用，就会写爬虫去网上爬，爬下来之后就开始折腾自己的一些想法，这个爱好对我后面的工作帮助很大。总结下：你要知道怎样去收集数据，收集数据之后，怎么用这个数据做出一些结论性的内容。学生期间不用特意去追求做所谓的有价值的东西，有兴趣好玩，追随自己内心就可以了。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/div&gt;</description><category>阅读清单</category><guid>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-07yue-3ri/</guid><pubDate>Mon, 03 Jul 2017 03:22:53 GMT</pubDate></item><item><title>本周阅读 2017年06月23日</title><link>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div&gt;&lt;h4&gt;&lt;a href="https://devblogs.nvidia.com/parallelforall/unified-memory-cuda-beginners/"&gt;1.Unified Memory for CUDA Beginners&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;一个简单的程序：用 Unified Memory 创建两个向量，在 CPU 上进行初始化，然后用 GPU kernel 计算向量加法。作者发现在 Kepler 架构的 K80 上，向量加法的 kernel 带宽能达到 134GB/s，而在 Pascal 架构的 Tesla P100 上却只有 6GB/s。这是什么原因造成的呢？&lt;/p&gt;
+&lt;p&gt;在 Pascal 架构以前， Unified Memory 在创建时会在 GPU 中分配显存，设置好页表等初始化操作。当 CPU 代码访问这片显存时，显卡驱动会把显存中的内容拷贝到内存中 (会有CPU页错误)。此后如果 GPU 又需要访问这片内存，驱动会先把&lt;strong&gt;整块内存&lt;/strong&gt;拷贝到GPU，然后再启动kernel。也就是说内存拷贝的时间是不计入kernel 运行时间的。&lt;/p&gt;
+&lt;p&gt;Pascal 架构的 GPU 增加了硬件以提供对 Unified Memory 的支持。在调用&lt;code&gt;cudaMallocManaged()&lt;/code&gt;时并不会真正在显存中分配内存。内存真正的分配被延迟到CPU 或者GPU 访问它的时候。由于支持页错误和页的移动(migration)，Pascal GPU 的kernel在访问一个内存中的 Unified Memory 时不需要提前把内存中的数据拷贝到显存中，而是在 kernel 中访问内存时才按页拷贝(当然会有数据预取减少页错误)。这种内存访问方式对于只利用部分内存的应用，比如对稀疏矩阵的某些操作，只需要在内存和显存间传输需要读写的部分数据。
+&lt;/p&gt;&lt;p&gt;&lt;a href="http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/"&gt;更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;</description><category>阅读清单</category><guid>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/</guid><pubDate>Fri, 23 Jun 2017 02:11:05 GMT</pubDate></item><item><title>抽样方法(2)--拒绝抽样和高斯分布</title><link>http://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div id="notebook" class="border-box-sizing"&gt;
+    &lt;div id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;在上篇博客&lt;a href="http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/"&gt;抽样方法(1)--随机数和简单随机抽样&lt;/a&gt;中，我介绍了如何生成随机数和均匀分布。进而通过均匀分布我们可以用Inverse Transform Method对一些简单分布进行抽样，但在博客的最后,我提到到由于高斯分布的累积分布函数是不可积的，因此用 Inverse Transform Method 不能直接对高斯分布进行抽样。这篇博客，我们就来为高斯分布寻找一个抽样方法。在继续后面的内容之前，注意到由于$N(\mu,\delta^2)=\mu+\delta N(0,1)$,因此要生成均值为$\mu$，方差为$\delta^2$的高斯分布，只需要我们能生成标准的高斯分布即可。针对前面高斯分布抽样的存在问题，我们可以从两个方向入手：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;既然高斯分布的CDF: $F(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} exp(-\frac{1}{2} x^2) dx$是不可积的，那么我们可以通过一些手段使得上式可积或者得到这个积分的一个近似。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;采用其他不需要计算累计分布函数的抽样方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href="http://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/"&gt;更多…&lt;/a&gt; (剩余 2 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>math</category><guid>http://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</guid><pubDate>Mon, 03 Oct 2016 03:39:10 GMT</pubDate></item><item><title>C++ 对象模型</title><link>http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div&gt;&lt;p&gt;我觉得学习中最幸福的时刻是 "aha moment": 当你弄懂一个思考很久的知识点，然后发现以前郁结于心的很多问题都解释得通了的那一刻。在我学习C++的经历中，印象最深的"aha moment"当属弄懂对象模型的时刻,因此当我想写关于C++的博客时，我决定利用"贪婪算法":先写我觉得最有趣的东西。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;本篇博客中的例子都是用 clang3.5在 MacOSX 10.11 64位下编译得到，有些例子在不同的系统和编译器下可能结果不同&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;C++ 中最简单的对象类型是 Plain Old Data (POD)类型，例如下面这个结构体：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;这样的结构体和C语言的结构体别无二致,它没有构造函数和析构函数，它包含的数据都是原始类型，它也没有继承别的类。像上面的这种C++结构体是和C兼容的，可以用C语言的内存函数如&lt;code&gt;memcpy，memset&lt;/code&gt;来操作这个结构体。它的内存布局也相对简单，结构体的大小就是结构体内元素的大小加上内存对齐。比如上面的toy这个结构体，用&lt;code&gt;sizeof(toy)&lt;/code&gt;可以得到它的大小为8(Bytes),即两个&lt;code&gt;int&lt;/code&gt;型变量的大小的和，如果把toy里b的类型改为&lt;code&gt;char&lt;/code&gt;型，虽然一个&lt;code&gt;int&lt;/code&gt;加上一个&lt;code&gt;char&lt;/code&gt;大小是5，但是由于内存对齐的要求，仍然要为toy分配8字节的内存，C++标准要求类中的数据布局和变量的声明顺序一致，在toy 中，由于a先声明，b后声明，在toy的实例中，a也要在前，b在后，地址由低到高。这里面隐藏的一个问题是，由于a占了前4个字节，b 只占一个字节，它在后面4个字节任何位置都是对齐的，那么编译器会把b放在哪里呢？可以用下面的程序验证：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt; &lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="n"&gt;toy&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sc"&gt;'a'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;reinterpret_cast&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s"&gt;":"&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s"&gt;" "&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+ &lt;span class="cm"&gt;/*输出:&lt;/span&gt;
+&lt;span class="cm"&gt;    5:a 6: 7: 8:&lt;/span&gt;
+&lt;span class="cm"&gt; */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;上面的程序输出了t从第5个字节起的所有值，注意 6,7,8内存位置都是不可打印的值，5号位置是程序main函数第二行写入b的值。也就是说b的内存是在后四个字节的起始位置。另一种情况是，如果在toy中再增加一个&lt;code&gt;int16_t&lt;/code&gt; 类型的数据，它是在第6,7个字节吗？注意这个时候由于它是需要对齐的，它的大小是2个字节，因此它应该对齐在第7个字节的内存位置。第6号位置就被跳过了，这时的toy内存布局为:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nl"&gt;address&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+    &lt;span class="n"&gt;toy&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;      &lt;span class="kt"&gt;int&lt;/span&gt;      &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;   &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="kt"&gt;int16_t&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href="http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/"&gt;更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;</description><category>c++</category><guid>http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</guid><pubDate>Mon, 26 Sep 2016 05:33:14 GMT</pubDate></item><item><title>抽样方法(1)--随机数和简单随机抽样</title><link>http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div id="notebook" class="border-box-sizing"&gt;
+    &lt;div id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;《统计模拟》是 M.ROSS 写的一本小册子，由于这本小册子携带很方便，我通常是在零碎时间看，这样断断续续看了一个学期，导致我学的相当不系统。于是我决定在博客里记录一下书中的内容，帮助自己思路的同时也回顾一下机器学习中的各种 sampling 方法。想想内容其实还是挺多的，所以我初步计划分成三个部分写。这篇博客其中的第一部分，主要内容是(伪)随机数的生成算法，以及对一些简单的分布进行抽样的方法。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="1.-随机数的生成算法"&gt;1. 随机数的生成算法&lt;a class="anchor-link" href="http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/#1.-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;在介绍具体算法前，先解释一下，我们在各种编程语言中用类似&lt;code&gt;random()&lt;/code&gt;这样的函数调用得到的随机数大多数是伪随机数，它们通常都是给的一个初始值(称为随机数种子),然后按照一个给定的公式计算下一个值。线性同余发生器是其中最简单的之一，它的计算公式是 $ X^{n+1} = A\*X^{n} + B  \mod M $ 公式中的A,B,M都是事先给定的常数，而$X_0$就是我们的随机数种子。从这个公式能得到的一个很直观的结论就是这个算法最多产生$N (N\leq M)$个随机数后就会产生重复的随机数序列,这个就N叫做这个算法的周期。通常我们希望这个算法的周期越长越好，即N越大越好，但是在这个算法里，N要达到$M$也是不容易的，它对$A,B,M$的选取有特殊的规定，比如要求$B$和$M$互质以及一些其他条件。虽然这个算法简单，但是它的优点很明显，就是计算量小，每生成一个随机数只需要一次乘法一次加法一次取模运算。因此这个算法通常用在一些追求速度的算法中，比如 Word2Vec 中生成随机数就是用的线性同余发生器，它的表达式是 &lt;code&gt;next_random = next_random*25214903917 +11&lt;/code&gt;,可以看到它的A和B选择了两个很fancy的质数，这里的 next_random C语言中的  long long 型的变量，所以这里的M就隐含着是long long 型变量的最大值。这个算法参数的随机数是否均匀分布可以用下面这段代码来验证，这段代码从这个算法中生成了N个随机数，然后画出了这些随机数归一化后的累积概率分布和概率密度函数。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/"&gt;更多…&lt;/a&gt; (剩余 2 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>math</category><category>mathjax</category><guid>http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/</guid><pubDate>Mon, 19 Sep 2016 03:15:25 GMT</pubDate></item></channel></rss>
