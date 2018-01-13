@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://blog.fangli.org/</loc>
-  <lastmod>2017-12-20T04:38:00Z</lastmod>
+  <lastmod>2018-01-13T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.fangli.org/2016/</loc>
@@ -18,12 +18,16 @@
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
+  <loc>http://blog.fangli.org/2018/</loc>
+  <lastmod>2018-01-13T02:32:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://blog.fangli.org/404.html</loc>
   <lastmod>2016-09-21T09:14:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.fangli.org/archive.html</loc>
-  <lastmod>2018-01-12T16:16:00Z</lastmod>
+  <lastmod>2018-01-13T02:50:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.fangli.org/categories/</loc>
@@ -54,6 +58,10 @@
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
+  <loc>http://blog.fangli.org/index-1.html</loc>
+  <lastmod>2018-01-13T02:32:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://blog.fangli.org/listings/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
@@ -76,6 +84,10 @@
  <url>
   <loc>http://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.fangli.org/posts/test/</loc>
+  <lastmod>2018-01-13T02:32:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.fangli.org/stories/404/</loc>
