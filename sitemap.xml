@@ -6,87 +6,71 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://blog.fangli.org/</loc>
+  <loc>https://blog.fangli.org/</loc>
   <lastmod>2018-01-13T03:00:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/2016/</loc>
+  <loc>https://blog.fangli.org/2016/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/2017/</loc>
-  <lastmod>2017-08-27T01:47:00Z</lastmod>
- </url>
- <url>
-  <loc>http://blog.fangli.org/404.html</loc>
+  <loc>https://blog.fangli.org/404.html</loc>
   <lastmod>2016-09-21T09:14:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/archive.html</loc>
-  <lastmod>2018-01-13T03:08:00Z</lastmod>
+  <loc>https://blog.fangli.org/archive.html</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/</loc>
+  <loc>https://blog.fangli.org/categories/</loc>
+  <lastmod>2018-01-13T03:09:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.fangli.org/categories/c%2B%2B/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/c%2B%2B/</loc>
+  <loc>https://blog.fangli.org/categories/cat_sampling/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/cat_sampling/</loc>
+  <loc>https://blog.fangli.org/categories/math/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/math/</loc>
+  <loc>https://blog.fangli.org/categories/mathjax/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/mathjax/</loc>
+  <loc>https://blog.fangli.org/galleries/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/categories/yue-du-qing-dan/</loc>
+  <loc>https://blog.fangli.org/listings/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/galleries/</loc>
+  <loc>https://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/listings/</loc>
+  <loc>https://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-06yue-23ri/</loc>
+  <loc>https://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/posts/ben-zhou-yue-du-2017nian-07yue-3ri/</loc>
+  <loc>https://blog.fangli.org/stories/404/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</loc>
+  <loc>https://blog.fangli.org/stories/shu-dan/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
  </url>
  <url>
-  <loc>http://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/</loc>
-  <lastmod>2017-08-27T01:47:00Z</lastmod>
- </url>
- <url>
-  <loc>http://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</loc>
-  <lastmod>2017-08-27T01:47:00Z</lastmod>
- </url>
- <url>
-  <loc>http://blog.fangli.org/stories/404/</loc>
-  <lastmod>2017-08-27T01:47:00Z</lastmod>
- </url>
- <url>
-  <loc>http://blog.fangli.org/stories/shu-dan/</loc>
-  <lastmod>2017-08-27T01:47:00Z</lastmod>
- </url>
- <url>
-  <loc>http://blog.fangli.org/stories/shu-xue-gai-nian/</loc>
+  <loc>https://blog.fangli.org/stories/shu-xue-gai-nian/</loc>
   <lastmod>2017-10-07T09:55:00Z</lastmod>
  </url>
 </urlset>

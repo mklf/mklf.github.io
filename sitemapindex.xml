@@ -6,35 +6,31 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>http://blog.fangli.org/categories/c%2B%2B.xml</loc>
-  <lastmod>2018-01-12T16:16:00Z</lastmod>
+  <loc>https://blog.fangli.org/categories/c%2B%2B.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/categories/cat_sampling.xml</loc>
-  <lastmod>2018-01-13T02:38:00Z</lastmod>
+  <loc>https://blog.fangli.org/categories/cat_sampling.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/categories/math.xml</loc>
-  <lastmod>2018-01-13T02:38:00Z</lastmod>
+  <loc>https://blog.fangli.org/categories/math.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/categories/mathjax.xml</loc>
-  <lastmod>2018-01-13T02:38:00Z</lastmod>
+  <loc>https://blog.fangli.org/categories/mathjax.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/categories/yue-du-qing-dan.xml</loc>
-  <lastmod>2018-01-12T16:16:00Z</lastmod>
+  <loc>https://blog.fangli.org/galleries/rss.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/galleries/rss.xml</loc>
-  <lastmod>2018-01-13T02:50:00Z</lastmod>
+  <loc>https://blog.fangli.org/rss.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
  <sitemap>
-  <loc>http://blog.fangli.org/rss.xml</loc>
-  <lastmod>2018-01-13T03:08:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>http://blog.fangli.org/sitemap.xml</loc>
-  <lastmod>2018-01-13T03:08:00Z</lastmod>
+  <loc>https://blog.fangli.org/sitemap.xml</loc>
+  <lastmod>2018-01-14T03:07:00Z</lastmod>
  </sitemap>
 </sitemapindex>
