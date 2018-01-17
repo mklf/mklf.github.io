@@ -7,11 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://blog.fangli.org/</loc>
-  <lastmod>2018-01-13T03:00:00Z</lastmod>
+  <lastmod>2018-01-16T07:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/2016/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.fangli.org/2018/</loc>
+  <lastmod>2018-01-16T09:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/404.html</loc>
@@ -19,11 +23,11 @@
  </url>
  <url>
   <loc>https://blog.fangli.org/archive.html</loc>
-  <lastmod>2018-01-16T07:19:00Z</lastmod>
+  <lastmod>2018-01-16T10:28:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/</loc>
-  <lastmod>2018-01-13T03:09:00Z</lastmod>
+  <lastmod>2018-01-17T02:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/c%2B%2B/</loc>
@@ -32,6 +36,10 @@
  <url>
   <loc>https://blog.fangli.org/categories/cat_sampling/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.fangli.org/categories/cat_shen-du-xue-xi-xian-xing-dai-shu-math/</loc>
+  <lastmod>2018-01-17T02:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/math/</loc>
@@ -60,6 +68,14 @@
  <url>
   <loc>https://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</loc>
   <lastmod>2017-08-27T01:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-shi-yi/</loc>
+  <lastmod>2018-01-16T10:28:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-xian-xing-dai-shu-yue-du-bi-ji/</loc>
+  <lastmod>2018-01-16T09:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/stories/404/</loc>

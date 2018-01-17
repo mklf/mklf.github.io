@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mklf</title><link>https://blog.fangli.org/</link><description>mklf的博客</description><atom:link href="https://blog.fangli.org/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><lastBuildDate>Sun, 14 Jan 2018 03:07:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>抽样方法(2)--拒绝抽样和高斯分布</title><link>https://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mklf</title><link>https://blog.fangli.org/</link><description>mklf的博客</description><atom:link href="https://blog.fangli.org/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><lastBuildDate>Wed, 17 Jan 2018 02:08:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>《深度学习》第二章拾遗</title><link>https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-shi-yi/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div id="notebook" class="border-box-sizing"&gt;
+    &lt;div id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;最近在阅读《深度学习》这本书。可能限于篇幅，有很多结论作者没有详细说明。所以在博客记录一下我对这些结论的推导。
+&lt;/p&gt;&lt;p&gt;&lt;a href="https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-shi-yi/"&gt;更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-shi-yi/</guid><pubDate>Tue, 16 Jan 2018 10:28:27 GMT</pubDate></item><item><title>抽样方法(2)--拒绝抽样和高斯分布</title><link>https://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</link><dc:creator>Frank Lee</dc:creator><description>&lt;div id="notebook" class="border-box-sizing"&gt;
     &lt;div id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
