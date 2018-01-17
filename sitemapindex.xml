@@ -18,12 +18,24 @@
   <lastmod>2018-01-17T02:14:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://blog.fangli.org/categories/cat_shen-du-xue-xi.xml</loc>
+  <lastmod>2018-01-17T06:02:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://blog.fangli.org/categories/math.xml</loc>
-  <lastmod>2018-01-17T02:14:00Z</lastmod>
+  <lastmod>2018-01-17T06:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.fangli.org/categories/mathjax.xml</loc>
   <lastmod>2018-01-14T03:07:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.fangli.org/categories/shen-du-xue-xi.xml</loc>
+  <lastmod>2018-01-17T06:02:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.fangli.org/categories/xian-xing-dai-shu.xml</loc>
+  <lastmod>2018-01-17T06:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.fangli.org/galleries/rss.xml</loc>
@@ -31,10 +43,10 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.fangli.org/rss.xml</loc>
-  <lastmod>2018-01-17T02:18:00Z</lastmod>
+  <lastmod>2018-01-17T06:02:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.fangli.org/sitemap.xml</loc>
-  <lastmod>2018-01-17T02:29:00Z</lastmod>
+  <lastmod>2018-01-17T06:15:00Z</lastmod>
  </sitemap>
 </sitemapindex>
