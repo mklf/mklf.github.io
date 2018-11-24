@@ -2,11 +2,14 @@
 <%namespace name="base" file="base_helper.tmpl" import="*"/>
 
 <%def name="html_footer()">
-    %if content_footer:
+   %if content_footer:
     <div class="footer-wrapper">
+        <div class="footer-inner">
         <footer role="contentinfo">
             <p>${content_footer}</p>
+            <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
             ${template_hooks['page_footer']()}
+        </div>
         </footer>
     </div>
     %endif

@@ -1,0 +1,7 @@
+cache
+.doit.db
+__pycache__
+output
+cahce
+*.pyc
+posts/.ipynb_checkpoints
