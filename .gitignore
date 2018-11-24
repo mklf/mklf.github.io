@@ -5,3 +5,4 @@ output
 cahce
 *.pyc
 posts/.ipynb_checkpoints
+draft/.ipynb_checkpoints
