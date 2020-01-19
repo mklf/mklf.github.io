@@ -17,8 +17,8 @@ import time
 
 
 # Data about this site
-BLOG_AUTHOR = "Frank Lee"  # (translatable)
-BLOG_TITLE = "ϵ-greedy"  # (translatable)
+BLOG_AUTHOR = "mklf"  # (translatable)
+BLOG_TITLE = "unsafe fn"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://blog.fangli.org/"
