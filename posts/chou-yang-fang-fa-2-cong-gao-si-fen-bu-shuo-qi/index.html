@@ -35,7 +35,7 @@
  });
  </script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><link href="../../assets/css/custom.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="author" content="Frank Lee">
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="author" content="mklf">
 <link rel="prev" href="../c%2B%2B-dui-xiang-mo-xing/" title="C++ 对象模型" type="text/html">
 <link rel="next" href="../shen-du-xue-xi-di-er-zhang-shi-yi/" title="《深度学习》第二章拾遗" type="text/html">
 <link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
@@ -82,7 +82,7 @@
             
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><div class="entry-meta">
             <span class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-10-03T11:39:10+08:00" itemprop="datePublished" title="2016-10-03 11:39">2016-10-03 11:39</time></a></span>  ·  
-            <span class="byline author vcard">Frank Lee</span>  ·  
+            <span class="byline author vcard">mklf</span>  ·  
             
 
         </div>
@@ -110,8 +110,7 @@
 </li>
 </ol>
 <!-- TEASER_END --><p>解决了第一个方向的问题，我们就可以继续用Inverse Transform Method 来对高斯分布进行抽样，著名的<a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform">Box-Muller变换</a>就是从第一种方法入手，它每次抽样两个独立的高斯分布样本，这样累计分布函数就变为一个二重积分:</p>
-<p>$$\begin{aligned}F(x,y)= \int_{-\infty}^y \int_{-\infty}^x \frac{1}{2\pi} exp(-\frac{1}{2} (x^2 + y^2) ) dxdy\quad \end{aligned}$$</p>
-<p>上面的这个积分在很多微积分教材中都有提及(比如我学习高数时用的同济第六版)，把x,y变换到极坐标下就可以求得积分。这样，在求得极坐标下的样本后，再通过直角坐标到极坐标的逆变换就可以到到x,y的值,即高斯分布的样本。除此之外，另一种和Box-Muller变换类似的方法叫<a href="https://en.wikipedia.org/wiki/Marsaglia_polar_method">Marsaglia polar method</a>，这种方法相比 Box-Muller变换，由于不需要在逆变换过程计算sin,cos这样的超越函数，节省了不少运算量，从而使得抽样的速度比Box-Muller变换更快。</p>
+$$\begin{aligned}F(x,y)= \int_{-\infty}^y \int_{-\infty}^x \frac{1}{2\pi} exp(-\frac{1}{2} (x^2 + y^2) ) dxdy\quad \end{aligned}$$<p>上面的这个积分在很多微积分教材中都有提及(比如我学习高数时用的同济第六版)，把x,y变换到极坐标下就可以求得积分。这样，在求得极坐标下的样本后，再通过直角坐标到极坐标的逆变换就可以到到x,y的值,即高斯分布的样本。除此之外，另一种和Box-Muller变换类似的方法叫<a href="https://en.wikipedia.org/wiki/Marsaglia_polar_method">Marsaglia polar method</a>，这种方法相比 Box-Muller变换，由于不需要在逆变换过程计算sin,cos这样的超越函数，节省了不少运算量，从而使得抽样的速度比Box-Muller变换更快。</p>
 
 </div>
 </div>
@@ -134,8 +133,7 @@
 <h6 id="1.Rejection-sampling:">1.Rejection sampling:<a class="anchor-link" href="#1.Rejection-sampling:">¶</a>
 </h6>
 <p>Rejection sampling 的想法是，假设我们能生成概率分布为$p(x)$的简单随机变量(这个分布也叫envelope分布)，现在要生成概率分布为$q(x)$的随机变量，我们可以从p中生成样本Y，再按照一定的概率接受这个样本。设常量c满足:</p>
-<p>$$\begin{aligned}\forall y,c\geq\frac{q(y)}{p(y)} \end{aligned}\label{1}\tag{公式1}$$</p>
-<p>拒绝采样的步骤如下:</p>
+$$\begin{aligned}\forall y,c\geq\frac{q(y)}{p(y)} \end{aligned}\label{1}\tag{公式1}$$<p>拒绝采样的步骤如下:</p>
 <ol>
 <li>
 <p>生成具有概率分布p的随机变量的样本Y</p>
@@ -164,8 +162,7 @@ $$P(接受) = \sum_{y}{\frac{q(y)}{c}}=\frac{1}{c}$$</p>
 <p>由于每一次迭代是独立进行的，上面的过程看做是一个几何概型：整个过程以$P(接受)=\frac{1}{c}$的概率接受，如果不接受，则继续进行,直到第一次接受为止。我们知道参数为$p$的几何分布的期望为$E(x)=\frac{1}{p}$,因此接受率为$\frac{1}{c}$的拒绝采样中，平均每接受一个样本需要进行$c$次迭代。我们通常希望算法的迭代次数尽量少，,因此c应取为$\frac{q(y)}{p(y)}$的上确界。</p>
 <p>注意到拒绝采样是不需要对目标分布进行积分的，这样我们就可以愉快的对高斯分布进行采样了。根据拒绝采样算法，首先我们要选择一个我们能进行采样的分布来作为envelope分布，上篇博客中我们实现对指数分布进行采样，这里正好能用上，那我们就以均值为1的指数分布作为 envelope 分布。但由于指数分布是非负的，我们把高斯分布也限制在正半轴,这样正半轴的高斯分布密度函数为$q(x) = \frac{2}{\sqrt{2\pi}}e^{-x^2/2},0&lt;x&lt;\infty$,而作为envelope分布的均值为1的指数分布密度函数为$p(x)=e^{-x},0&lt;x&lt;\infty$</p>
 <p>根据拒绝采样算法，第二步是计算$c$的取值，$c$ 应该为$\frac{q(x)}{p(x)}$的上确界:</p>
-<p>$$\begin{equation}\frac{q(x)}{p(x)}=\sqrt{2/\pi}e^{x-x^2/2}\\{}c=\max\frac{q(x)}{p(x)}\end{equation}$$</p>
-<p>通过求导可以得到当$x=1$时,$\frac{q(x)}{p(x)}$的最大值，此时$c = max \frac{q(x)}{p(x)} =\sqrt{2e/\pi}$,带入c的值，可以得到
+$$\begin{equation}\frac{q(x)}{p(x)}=\sqrt{2/\pi}e^{x-x^2/2}\\{}c=\max\frac{q(x)}{p(x)}\end{equation}$$<p>通过求导可以得到当$x=1$时,$\frac{q(x)}{p(x)}$的最大值，此时$c = max \frac{q(x)}{p(x)} =\sqrt{2e/\pi}$,带入c的值，可以得到
 $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 </div>
@@ -203,7 +200,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
-<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 <span class="k">def</span> <span class="nf">exponential_sampling</span><span class="p">(</span><span class="n">param_lambda</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">        生成指数分布样本</span>
@@ -216,7 +213,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
     <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">param_lambda</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -226,7 +223,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -280,7 +277,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
                            <span class="n">exp_sampler</span><span class="p">,</span><span class="n">unary_op</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -306,7 +303,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"sample mean:</span><span class="si">{:.6f}</span><span class="s2">,variance:</span><span class="si">{:.6f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s_mean</span><span class="p">,</span><span class="n">s_var</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -316,7 +313,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -348,7 +345,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 <span class="n">hist</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">histtype</span><span class="o">=</span><span class="s1">'step'</span><span class="p">,</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">);</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -358,7 +355,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -391,7 +388,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'accpet probability: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">N</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -401,7 +398,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -467,7 +464,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
     <span class="n">xlabel</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2"> linears"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -477,7 +474,7 @@ $$\frac{q(x)}{c\cdot p(x)} =\exp(-\frac{(x-1)^2}{2})$$</p>
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 
@@ -548,10 +545,9 @@ var idcomments_post_url = "https://blog.fangli.org/posts/chou-yang-fang-fa-2-con
     
     <div class="footer-wrapper">
         <div class="footer-inner">
-        <footer role="contentinfo"><p>Contents © 2018         <a href="mailto:golifang123@163.com">Frank Lee</a>- Powered by Nikola theme hpstr         
+        <footer role="contentinfo"><p>Contents © 2020         <a href="mailto:golifang123@163.com">mklf</a>- Powered by Nikola theme hpstr         
  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
  <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><span id="busuanzi_container_site_pv">pv:<span id="busuanzi_value_site_pv"></span></span></p>
-            <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
             
         </footer>
 </div>
@@ -559,8 +555,6 @@ var idcomments_post_url = "https://blog.fangli.org/posts/chou-yang-fang-fa-2-con
     </div>
 
     
-<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });
-</script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="../../assets/js/scripts.min.js"></script>
+<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="../../assets/js/scripts.min.js"></script>
 </body>
 </html>

@@ -7,130 +7,90 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://blog.fangli.org/</loc>
-  <lastmod>2018-11-24T14:36:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/2016/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/2018/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/404.html</loc>
-  <lastmod>2016-09-21T09:14:00Z</lastmod>
+  <lastmod>2020-01-19T06:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/archive.html</loc>
-  <lastmod>2018-12-15T03:08:00Z</lastmod>
+  <lastmod>2020-01-21T01:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/c%2B%2B/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/categories/cat_posts/</loc>
-  <lastmod>2018-11-24T13:28:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/cat_sampling/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/cat_shen-du-xue-xi/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/math/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/mathjax/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/shen-du-xue-xi/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/categories/xian-xing-dai-shu/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/galleries/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/index-1.html</loc>
-  <lastmod>2018-11-24T14:33:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/listings/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/posts/abc/</loc>
-  <lastmod>2018-11-24T14:33:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/posts/abc/index.src.html</loc>
-  <lastmod>2018-11-24T14:34:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/</loc>
-  <lastmod>2018-11-24T13:43:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/posts/shen-du-xue-xi-di-er-zhang-shi-yi/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/posts/tensorflow-101/</loc>
-  <lastmod>2018-11-24T14:33:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/posts/test/</loc>
-  <lastmod>2018-02-11T02:02:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/reveal.js/plugin/markdown/example.html</loc>
-  <lastmod>2018-07-31T17:37:00Z</lastmod>
+  <lastmod>2020-01-19T06:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/reveal.js/plugin/notes-server/notes.html</loc>
-  <lastmod>2018-07-31T17:37:00Z</lastmod>
+  <lastmod>2020-01-19T06:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/reveal.js/plugin/notes/notes.html</loc>
-  <lastmod>2018-07-31T17:37:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/stories/abc/</loc>
-  <lastmod>2018-11-24T14:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://blog.fangli.org/stories/abc/index.src.html</loc>
-  <lastmod>2018-11-24T14:34:00Z</lastmod>
+  <lastmod>2020-01-19T06:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/stories/du-shu-qing-dan/</loc>
-  <lastmod>2018-01-21T05:32:00Z</lastmod>
+  <lastmod>2020-01-19T06:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.fangli.org/tensorflow-101.slides.html</loc>
-  <lastmod>2018-11-25T03:52:00Z</lastmod>
+  <lastmod>2020-01-19T06:33:00Z</lastmod>
  </url>
 </urlset>
