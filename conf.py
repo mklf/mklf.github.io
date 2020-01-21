@@ -1134,10 +1134,8 @@ EXTRA_HEAD_DATA = """
 # in the default template (base.tmpl).
 # (translatable)
 BODY_END = """
-<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });
-</script>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 """
 
 # The possibility to extract metadata from the filename by using a
