@@ -1,134 +1,122 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " vocab="http://ogp.me/ns" lang="zh_cn">
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><!--<![endif]--><head>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="zh_cn">
+<head>
 <meta charset="utf-8">
-<meta name="description" content="mklf的博客">
-<!-- http://t.co/dKP3o1e --><meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="mklf's site">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>unsafe fn</title>
-<link href="assets/css/rst.css" rel="stylesheet" type="text/css">
-<link href="assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="assets/css/main.css" rel="stylesheet" type="text/css">
-<link href="assets/css/extra.css" rel="stylesheet" type="text/css">
-<!-- Webfonts --><link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
-<!-- Load Modernizr --><script src="assets/js/modernizr-2.6.2.custom.min.js"></script><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-<link rel="canonical" href="https://blog.fangli.org/">
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-         processEscapes: true
-     },
-     Tex:{
-        equationNumbers: { autoNumber: "AMS" }
-     },
-     showMathMenu: false,
-     showMathMenuMISE:false,
-     messageStyle:"none",
-     displayAlign: 'center', // Change this to 'center' to center equations.
-     "HTML-CSS": {
-         styles: {'.MathJax_Display': {"margin": 0}},
-         linebreaks:{automatic:true,width:"container"}
-     },
-     SVG:{linebreaks:{automatic:true}}
- });
- </script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link href="assets/css/custom.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><link rel="prefetch" href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/" type="text/html">
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="rss.xml">
+<link rel="canonical" href="https://mklf.github.io/">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/" type="text/html">
 </head>
-<body id="post-index" class="feature">
+<body>
 <a href="#content" class="sr-only sr-only-focusable">跳到主内容</a>
-    
 
-    <nav id="dl-menu" class="dl-menuwrapper" role="navigation"><button class="dl-trigger">Open Menu</button>
-    <ul class="dl-menu">
-<li><a href=".">首页</a></li>
-            <li><a href="archive.html">存档</a></li>
-            <li><a href="categories/">分类</a></li>
-            <li><a href="rss.xml">RSS</a></li>
-    
-    
-    </ul></nav><div class="entry-header">
-    <div class="entry-image">
-      <img src="images/beijing.jpg" alt="Latest Posts">
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
+        </div>
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href=".">
+
+            <span id="blog-title">unsafe fn</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
 </div>
-<!-- /.entry-image -->
-      
-  <div class="header-title">
-    <div class="header-title-wrap">
-    <h1 id="brand"><a href="https://blog.fangli.org/" title="unsafe fn" rel="home">
-    unsafe fn</a></h1>
-      <h2>mklf</h2>
     </div>
-<!-- /.header-title-wrap -->
-  </div>
-<!-- /.header-title -->
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="archive.html" class="nav-link">文章归档</a>
+                </li>
+<li class="nav-item">
+<a href="categories/" class="nav-link">标签</a>
+                </li>
+<li class="nav-item">
+<a href="rss.xml" class="nav-link">RSS 源</a>
 
+                
+            </li>
+</ul>
 </div>
-<!-- /.entry-header -->
+<!-- /.navbar-collapse -->
+</nav>
+</div>
 
-    <div id="main" role="main">
-            
-
-    <article class="hentry"><header><div class="entry-meta">
-      <span class="entry-date date published updated">
-        <time datetime="2018-01-16T18:28:27+08:00" title="2018-01-16 18:28">2018-01-16 18:28</time></span>  ·  
-      <span class="byline author vcard">mklf</span>
-            ·  <span class="commentline">
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
         
-<a href="%7Blink%7D" onclick="this.href='/posts/shen-du-xue-xi-di-er-zhang-shi-yi/'; this.target='_self';"><span class="IDCommentsReplace" style="display:none">cache/posts/shen-du-xue-xi-di-er-zhang-shi-yi.html</span>
-<script>
-var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
-var idcomments_post_id = "cache/posts/shen-du-xue-xi-di-er-zhang-shi-yi.html";
-var idcomments_post_url = "/posts/shen-du-xue-xi-di-er-zhang-shi-yi/";
-</script><script src="https://www.intensedebate.com/js/genericLinkWrapperV2.js"></script></a>
+        
+        
+    
+        
+
+    
+        
+    <div class="postindex">
+            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/" class="u-url">《深度学习》第二章拾遗</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        mklf
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/" rel="bookmark">
+            <time class="published dt-published" datetime="2018-01-16T18:28:27+08:00" itemprop="datePublished" title="2018-01-16 18:28">2018-01-16 18:28</time></a>
+            </p>
+                        <p class="commentline">
+        
+    <a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/#disqus_thread" data-disqus-identifier="cache/posts/shen-du-xue-xi-di-er-zhang-shi-yi.html">评论</a>
 
 
-      </span>
+                </p>
 </div>
-        <h1 class="p-name entry-title"><a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/" class="u-url">《深度学习》第二章拾遗</a></h1>
-    </header><div class="p-summary entry-summary">
-    <div id="notebook" class="border-box-sizing">
-    <div id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
+            </header><div class="p-summary entry-summary">
+                    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>最近在阅读《深度学习》这本书。可能限于篇幅，有很多结论作者没有详细说明。所以在博客记录一下我对这些结论的推导。
 </p>
-<p class="more"><a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/">阅读全文</a></p>
+<p class="more"><a href="posts/shen-du-xue-xi-di-er-zhang-shi-yi/">阅读更多…</a></p>
 </div>
 </div>
 </div>
-</div>
-</div>
-    </div>
-    </article><article class="hentry"><header><div class="entry-meta">
-      <span class="entry-date date published updated">
-        <time datetime="2016-10-03T11:39:10+08:00" title="2016-10-03 11:39">2016-10-03 11:39</time></span>  ·  
-      <span class="byline author vcard">mklf</span>
-            ·  <span class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" class="u-url">抽样方法(2)--拒绝抽样和高斯分布</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        mklf
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" rel="bookmark">
+            <time class="published dt-published" datetime="2016-10-03T11:39:10+08:00" itemprop="datePublished" title="2016-10-03 11:39">2016-10-03 11:39</time></a>
+            </p>
+                        <p class="commentline">
         
-<a href="%7Blink%7D" onclick="this.href='/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/'; this.target='_self';"><span class="IDCommentsReplace" style="display:none">cache/posts/chou-yang-fang-fa-2-ju-jue-cai-yang-he-gao-si-fen-bu.html</span>
-<script>
-var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
-var idcomments_post_id = "cache/posts/chou-yang-fang-fa-2-ju-jue-cai-yang-he-gao-si-fen-bu.html";
-var idcomments_post_url = "/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/";
-</script><script src="https://www.intensedebate.com/js/genericLinkWrapperV2.js"></script></a>
+    <a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/#disqus_thread" data-disqus-identifier="cache/posts/chou-yang-fang-fa-2-ju-jue-cai-yang-he-gao-si-fen-bu.html">评论</a>
 
 
-      </span>
+                </p>
 </div>
-        <h1 class="p-name entry-title"><a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" class="u-url">抽样方法(2)--拒绝抽样和高斯分布</a></h1>
-    </header><div class="p-summary entry-summary">
-    <div id="notebook" class="border-box-sizing">
-    <div id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
+            </header><div class="p-summary entry-summary">
+                    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -142,45 +130,41 @@ var idcomments_post_url = "/posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi
 <p>采用其他不需要计算累计分布函数的抽样方法。</p>
 </li>
 </ol>
-<p class="more"><a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/">阅读全文</a></p>
+<p class="more"><a href="posts/chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/">阅读更多…</a></p>
 </div>
 </div>
 </div>
-</div>
-</div>
-    </div>
-    </article><article class="hentry"><header><div class="entry-meta">
-      <span class="entry-date date published updated">
-        <time datetime="2016-09-26T13:33:14+08:00" title="2016-09-26 13:33">2016-09-26 13:33</time></span>  ·  
-      <span class="byline author vcard">mklf</span>
-            ·  <span class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/c%2B%2B-dui-xiang-mo-xing/" class="u-url">C++ 对象模型</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        mklf
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/c%2B%2B-dui-xiang-mo-xing/" rel="bookmark">
+            <time class="published dt-published" datetime="2016-09-26T13:33:14+08:00" itemprop="datePublished" title="2016-09-26 13:33">2016-09-26 13:33</time></a>
+            </p>
+                        <p class="commentline">
         
-<a href="%7Blink%7D" onclick="this.href='/posts/c%2B%2B-dui-xiang-mo-xing/'; this.target='_self';"><span class="IDCommentsReplace" style="display:none">cache/posts/c++-dui-xiang-mo-xing.html</span>
-<script>
-var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
-var idcomments_post_id = "cache/posts/c++-dui-xiang-mo-xing.html";
-var idcomments_post_url = "/posts/c%2B%2B-dui-xiang-mo-xing/";
-</script><script src="https://www.intensedebate.com/js/genericLinkWrapperV2.js"></script></a>
+    <a href="posts/c%2B%2B-dui-xiang-mo-xing/#disqus_thread" data-disqus-identifier="cache/posts/c++-dui-xiang-mo-xing.html">评论</a>
 
 
-      </span>
+                </p>
 </div>
-        <h1 class="p-name entry-title"><a href="posts/c%2B%2B-dui-xiang-mo-xing/" class="u-url">C++ 对象模型</a></h1>
-    </header><div class="p-summary entry-summary">
-    <div>
+            </header><div class="p-summary entry-summary">
+                    <div>
 <p>我觉得学习中最幸福的时刻是 "aha moment": 当你弄懂一个思考很久的知识点，然后发现以前郁结于心的很多问题都解释得通了的那一刻。在我学习C++的经历中，印象最深的"aha moment"当属弄懂对象模型的时刻,因此当我想写关于C++的博客时，我决定利用"贪婪算法":先写我觉得最有趣的东西。</p>
 <p><em>本篇博客中的例子都是用 clang3.5在 MacOSX 10.11 64位下编译得到，有些例子在不同的系统和编译器下可能结果不同</em></p>
 <p>C++ 中最简单的对象类型是 Plain Old Data (POD)类型，例如下面这个结构体：</p>
-<pre class="code literal-block"><span></span><span class="k">struct</span> <span class="n">toy</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">struct</span> <span class="nc">toy</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <p>这样的结构体和C语言的结构体别无二致,它没有构造函数和析构函数，它包含的数据都是原始类型，它也没有继承别的类。像上面的这种C++结构体是和C兼容的，可以用C语言的内存函数如<code>memcpy，memset</code>来操作这个结构体。它的内存布局也相对简单，结构体的大小就是结构体内元素的大小加上内存对齐。比如上面的toy这个结构体，用<code>sizeof(toy)</code>可以得到它的大小为8(Bytes),即两个<code>int</code>型变量的大小的和，如果把toy里b的类型改为<code>char</code>型，虽然一个<code>int</code>加上一个<code>char</code>大小是5，但是由于内存对齐的要求，仍然要为toy分配8字节的内存，C++标准要求类中的数据布局和变量的声明顺序一致，在toy 中，由于a先声明，b后声明，在toy的实例中，a也要在前，b在后，地址由低到高。这里面隐藏的一个问题是，由于a占了前4个字节，b 只占一个字节，它在后面4个字节任何位置都是对齐的，那么编译器会把b放在哪里呢？可以用下面的程序验证：</p>
-<pre class="code literal-block"><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">struct</span> <span class="n">toy</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">struct</span> <span class="nc">toy</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
@@ -196,39 +180,34 @@ var idcomments_post_url = "/posts/c%2B%2B-dui-xiang-mo-xing/";
 <span class="cm">    5:a 6: 7: 8:</span>
 <span class="cm"> */</span>
 <span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <p>上面的程序输出了t从第5个字节起的所有值，注意 6,7,8内存位置都是不可打印的值，5号位置是程序main函数第二行写入b的值。也就是说b的内存是在后四个字节的起始位置。另一种情况是，如果在toy中再增加一个<code>int16_t</code> 类型的数据，它是在第6,7个字节吗？注意这个时候由于它是需要对齐的，它的大小是2个字节，因此它应该对齐在第7个字节的内存位置。第6号位置就被跳过了，这时的toy内存布局为:</p>
-<pre class="code literal-block"><span></span><span class="nl">address</span><span class="p">:</span><span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span>  <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="mi">7</span> <span class="o">|</span>
+<pre class="code literal-block"><span></span><code><span class="nl">address</span><span class="p">:</span><span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span>  <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="mi">7</span> <span class="o">|</span>
     <span class="n">toy</span><span class="p">{</span><span class="o">|</span>      <span class="kt">int</span>      <span class="o">|</span> <span class="kt">char</span><span class="o">|</span>   <span class="o">|</span><span class="kt">int16_t</span><span class="o">|</span><span class="p">}</span>
-</pre>
+</code></pre>
 
-
-<p class="more"><a href="posts/c%2B%2B-dui-xiang-mo-xing/">阅读全文</a></p>
+<p class="more"><a href="posts/c%2B%2B-dui-xiang-mo-xing/">阅读更多…</a></p>
 </div>
-    </div>
-    </article><article class="hentry"><header><div class="entry-meta">
-      <span class="entry-date date published updated">
-        <time datetime="2016-09-19T11:15:25+08:00" title="2016-09-19 11:15">2016-09-19 11:15</time></span>  ·  
-      <span class="byline author vcard">mklf</span>
-            ·  <span class="commentline">
+                </div>
+            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" class="u-url">抽样方法(1)--随机数和简单随机抽样</a></h1>
+                <div class="metadata">
+                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                        mklf
+                    </span></p>
+            <p class="dateline">
+            <a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" rel="bookmark">
+            <time class="published dt-published" datetime="2016-09-19T11:15:25+08:00" itemprop="datePublished" title="2016-09-19 11:15">2016-09-19 11:15</time></a>
+            </p>
+                        <p class="commentline">
         
-<a href="%7Blink%7D" onclick="this.href='/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/'; this.target='_self';"><span class="IDCommentsReplace" style="display:none">cache/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang.html</span>
-<script>
-var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
-var idcomments_post_id = "cache/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang.html";
-var idcomments_post_url = "/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/";
-</script><script src="https://www.intensedebate.com/js/genericLinkWrapperV2.js"></script></a>
+    <a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/#disqus_thread" data-disqus-identifier="cache/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang.html">评论</a>
 
 
-      </span>
+                </p>
 </div>
-        <h1 class="p-name entry-title"><a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" class="u-url">抽样方法(1)--随机数和简单随机抽样</a></h1>
-    </header><div class="p-summary entry-summary">
-    <div id="notebook" class="border-box-sizing">
-    <div id="notebook-container">
-
+            </header><div class="p-summary entry-summary">
+                    <div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -244,8 +223,8 @@ var idcomments_post_url = "/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.-随机数的生成算法">1. 随机数的生成算法<a class="anchor-link" href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/#1.-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95">¶</a>
-</h4>
+<h3 id="1.-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95">1. 随机数的生成算法<a class="anchor-link" href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/#1.-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95">¶</a>
+</h3>
 <p>在介绍具体算法前，先解释一下，我们在各种编程语言中用类似<code>random()</code>这样的函数调用得到的随机数大多数是伪随机数，它们通常都是给的一个初始值(称为随机数种子),然后按照一个给定的公式计算下一个值。线性同余发生器是其中最简单的之一，它的计算公式是 $ X^{n+1} = AX^{n} + B  \mod M $ 公式中的A,B,M都是事先给定的常数，而$X_0$就是我们的随机数种子。从这个公式能得到的一个很直观的结论就是这个算法最多产生$N (N\leq M)$个随机数后就会产生重复的随机数序列,这个就N叫做这个算法的周期。通常我们希望这个算法的周期越长越好，即N越大越好，但是在这个算法里，N要达到$M$也是不容易的，它对$A,B,M$的选取有特殊的规定，比如要求$B$和$M$互质以及一些其他条件。虽然这个算法简单，但是它的优点很明显，就是计算量小，每生成一个随机数只需要一次乘法一次加法一次取模运算。因此这个算法通常用在一些追求速度的算法中，比如 Word2Vec 中生成随机数就是用的线性同余发生器，它的表达式是 <code>next_random = next_random*25214903917 +11</code>,可以看到它的A和B选择了两个很fancy的质数，这里的 next_random C语言中的  long long 型的变量，所以这里的M就隐含着是long long 型变量的最大值。这个算法参数的随机数是否均匀分布可以用下面这段代码来验证，这段代码从这个算法中生成了N个随机数，然后画出了这些随机数归一化后的累积概率分布和概率密度函数。</p>
 
 </div>
@@ -256,48 +235,43 @@ var idcomments_post_url = "/posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p class="more"><a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/">阅读全文</a></p>
+<p class="more"><a href="posts/chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/">阅读更多…</a></p>
 </div>
 </div>
 </div>
 </div>
+                </div>
+            </article>
 </div>
-    </div>
-    </article><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-yYfngbEKv4RENfGDvNUqJTqGFcKf31NJEe9OTnnMH3Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+    
+
+    
+        
+       <script>var disqus_shortname="mklf-github-io";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
  MathJax.Hub.Config({
      tex2jax: {
          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
          processEscapes: true
      },
-     Tex:{
-        equationNumbers: { autoNumber: "AMS" }
-     },
-     showMathMenu: false,
-     showMathMenuMISE:false,
-     messageStyle:"none",
-     displayAlign: 'center', // Change this to 'center' to center equations.
+     displayAlign: 'center', // Change this to 'left' if you want left-aligned equations.
      "HTML-CSS": {
-         styles: {'.MathJax_Display': {"margin": 0}},
-         linebreaks:{automatic:true,width:"container"}
-     },
-     SVG:{linebreaks:{automatic:true}}
+         styles: {'.MathJax_Display': {"margin": 0}}
+     }
  });
- </script>
-</div>
-    
-    <div class="footer-wrapper">
-        <div class="footer-inner">
-        <footer role="contentinfo"><p>Contents © 2020         <a href="mailto:golifang123@163.com">mklf</a>- Powered by Nikola theme hpstr         
- <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
- <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><span id="busuanzi_container_site_pv">pv:<span id="busuanzi_value_site_pv"></span></span></p>
+ </script><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:fangli9@outlook.com">mklf</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
             
         </footer>
 </div>
-        
-    </div>
+</div>
 
-    
-<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="assets/js/scripts.min.js"></script>
+
+        <script src="assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
 </body>
 </html>

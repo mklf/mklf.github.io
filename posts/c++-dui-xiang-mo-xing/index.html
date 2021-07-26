@@ -1,112 +1,113 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " vocab="http://ogp.me/ns" lang="zh_cn">
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><!--<![endif]--><head>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="zh_cn">
+<head>
 <meta charset="utf-8">
-<!-- http://t.co/dKP3o1e --><meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>unsafe fn</title>
-<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/main.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/extra.css" rel="stylesheet" type="text/css">
-<!-- Webfonts --><link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
-<!-- Load Modernizr --><script src="../../assets/js/modernizr-2.6.2.custom.min.js"></script><link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/">
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-         processEscapes: true
-     },
-     Tex:{
-        equationNumbers: { autoNumber: "AMS" }
-     },
-     showMathMenu: false,
-     showMathMenuMISE:false,
-     messageStyle:"none",
-     displayAlign: 'center', // Change this to 'center' to center equations.
-     "HTML-CSS": {
-         styles: {'.MathJax_Display': {"margin": 0}},
-         linebreaks:{automatic:true,width:"container"}
-     },
-     SVG:{linebreaks:{automatic:true}}
- });
- </script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><link href="../../assets/css/custom.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="author" content="mklf">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C++ 对象模型 | unsafe fn</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="../../rss.xml">
+<link rel="canonical" href="https://mklf.github.io/posts/c%2B%2B-dui-xiang-mo-xing/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="mklf">
 <link rel="prev" href="../chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" title="抽样方法(1)--随机数和简单随机抽样" type="text/html">
 <link rel="next" href="../chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" title="抽样方法(2)--拒绝抽样和高斯分布" type="text/html">
-<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><meta property="og:site_name" content="unsafe fn">
+<meta property="og:site_name" content="unsafe fn">
 <meta property="og:title" content="C++ 对象模型">
-<meta property="og:url" content="https://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/">
+<meta property="og:url" content="https://mklf.github.io/posts/c%2B%2B-dui-xiang-mo-xing/">
 <meta property="og:description" content='我觉得学习中最幸福的时刻是 "aha moment": 当你弄懂一个思考很久的知识点，然后发现以前郁结于心的很多问题都解释得通了的那一刻。在我学习C++的经历中，印象最深的"aha moment"当属弄懂对象模型的时刻,因此当我想写关于C++的博客时，我决定利用"贪婪算法":先写我觉得最有趣的东西。
 本篇博客中的例子都是用 clang3.5在 MacOSX 10.11 64位下编译得到，有些例子在'>
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-09-26T13:33:14+08:00">
 <meta property="article:tag" content="c++">
 </head>
-<body id="post-index" class="feature">
+<body>
 <a href="#content" class="sr-only sr-only-focusable">跳到主内容</a>
-    
 
-    <nav id="dl-menu" class="dl-menuwrapper" role="navigation"><button class="dl-trigger">Open Menu</button>
-    <ul class="dl-menu">
-<li><a href="../../">首页</a></li>
-            <li><a href="../../archive.html">存档</a></li>
-            <li><a href="../../categories/">分类</a></li>
-            <li><a href="../../rss.xml">RSS</a></li>
-    
-    
-    </ul></nav><div class="entry-header">
-    <div class="entry-image">
-      <img src="../../images/beijing.jpg" alt="Latest Posts">
-</div>
-<!-- /.entry-image -->
-      
-  <div class="header-title">
-    <div class="header-title-wrap">
-    <h1 id="brand"><a href="https://blog.fangli.org/" title="unsafe fn" rel="home">
-    unsafe fn</a></h1>
-      <h2>mklf</h2>
-    </div>
-<!-- /.header-title-wrap -->
-  </div>
-<!-- /.header-title -->
-
-</div>
-<!-- /.entry-header -->
-
-    <div id="main" role="main">
-            
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><div class="entry-meta">
-            <span class="dateline"><a href="../c%2B%2B-dui-xiang-mo-xing/" rel="bookmark"><time class="published dt-published" datetime="2016-09-26T13:33:14+08:00" itemprop="datePublished" title="2016-09-26 13:33">2016-09-26 13:33</time></a></span>  ·  
-            <span class="byline author vcard">mklf</span>  ·  
-            
-
+<!-- Header and menu bar -->
+<div class="container">
+      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
+          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
+            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
+                
+            </div>
         </div>
-        
+          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
+            <a class="navbar-brand blog-header-logo text-dark" href="../../">
 
-    
-    <h1 class="p-name entry-title" itemprop="headline name"><a href="../c%2B%2B-dui-xiang-mo-xing/" class="u-url">C++ 对象模型</a></h1>
+            <span id="blog-title">unsafe fn</span>
+        </a>
+          </div>
+            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
+            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
+</div>
+    </div>
+</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
+            <ul class="navbar-nav nav-fill d-flex w-100">
+<li class="nav-item">
+<a href="../../archive.html" class="nav-link">文章归档</a>
+                </li>
+<li class="nav-item">
+<a href="../../categories/" class="nav-link">标签</a>
+                </li>
+<li class="nav-item">
+<a href="../../rss.xml" class="nav-link">RSS 源</a>
+
+                
+            </li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</nav>
+</div>
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="../c%2B%2B-dui-xiang-mo-xing/" class="u-url">C++ 对象模型</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
+                    mklf
+            </span></p>
+            <p class="dateline">
+            <a href="../c%2B%2B-dui-xiang-mo-xing/" rel="bookmark">
+            <time class="published dt-published" datetime="2016-09-26T13:33:14+08:00" itemprop="datePublished" title="2016-09-26 13:33">2016-09-26 13:33</time></a>
+            </p>
+                <p class="commentline">
+        
+    <a href="../c%2B%2B-dui-xiang-mo-xing/#disqus_thread" data-disqus-identifier="cache/posts/c++-dui-xiang-mo-xing.html">评论</a>
+
+
+            
+
+        </p>
+</div>
+        
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>我觉得学习中最幸福的时刻是 "aha moment": 当你弄懂一个思考很久的知识点，然后发现以前郁结于心的很多问题都解释得通了的那一刻。在我学习C++的经历中，印象最深的"aha moment"当属弄懂对象模型的时刻,因此当我想写关于C++的博客时，我决定利用"贪婪算法":先写我觉得最有趣的东西。</p>
 <p><em>本篇博客中的例子都是用 clang3.5在 MacOSX 10.11 64位下编译得到，有些例子在不同的系统和编译器下可能结果不同</em></p>
 <p>C++ 中最简单的对象类型是 Plain Old Data (POD)类型，例如下面这个结构体：</p>
-<pre class="code literal-block"><span></span><span class="k">struct</span> <span class="n">toy</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">struct</span> <span class="nc">toy</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <p>这样的结构体和C语言的结构体别无二致,它没有构造函数和析构函数，它包含的数据都是原始类型，它也没有继承别的类。像上面的这种C++结构体是和C兼容的，可以用C语言的内存函数如<code>memcpy，memset</code>来操作这个结构体。它的内存布局也相对简单，结构体的大小就是结构体内元素的大小加上内存对齐。比如上面的toy这个结构体，用<code>sizeof(toy)</code>可以得到它的大小为8(Bytes),即两个<code>int</code>型变量的大小的和，如果把toy里b的类型改为<code>char</code>型，虽然一个<code>int</code>加上一个<code>char</code>大小是5，但是由于内存对齐的要求，仍然要为toy分配8字节的内存，C++标准要求类中的数据布局和变量的声明顺序一致，在toy 中，由于a先声明，b后声明，在toy的实例中，a也要在前，b在后，地址由低到高。这里面隐藏的一个问题是，由于a占了前4个字节，b 只占一个字节，它在后面4个字节任何位置都是对齐的，那么编译器会把b放在哪里呢？可以用下面的程序验证：</p>
-<pre class="code literal-block"><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">struct</span> <span class="n">toy</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">struct</span> <span class="nc">toy</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
@@ -122,20 +123,17 @@
 <span class="cm">    5:a 6: 7: 8:</span>
 <span class="cm"> */</span>
 <span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <p>上面的程序输出了t从第5个字节起的所有值，注意 6,7,8内存位置都是不可打印的值，5号位置是程序main函数第二行写入b的值。也就是说b的内存是在后四个字节的起始位置。另一种情况是，如果在toy中再增加一个<code>int16_t</code> 类型的数据，它是在第6,7个字节吗？注意这个时候由于它是需要对齐的，它的大小是2个字节，因此它应该对齐在第7个字节的内存位置。第6号位置就被跳过了，这时的toy内存布局为:</p>
-<pre class="code literal-block"><span></span><span class="nl">address</span><span class="p">:</span><span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span>  <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="mi">7</span> <span class="o">|</span>
+<pre class="code literal-block"><span></span><code><span class="nl">address</span><span class="p">:</span><span class="o">|</span> <span class="mi">0</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>  <span class="mi">4</span>  <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="mi">7</span> <span class="o">|</span>
     <span class="n">toy</span><span class="p">{</span><span class="o">|</span>      <span class="kt">int</span>      <span class="o">|</span> <span class="kt">char</span><span class="o">|</span>   <span class="o">|</span><span class="kt">int16_t</span><span class="o">|</span><span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <!-- TEASER_END -->
-
 <p>数据对齐加快内存读写速度的同时也使得内存空间的产生了一定的浪费，toy结构体浪费了3/8的内存空间，如果在程序需要实例化很多toy的对象，浪费的空间总量是很可观的。好在很多编译器都提供了选项来紧凑的表示结构体，比如 gcc 和clang提供了 <code>__attribute__((packed))</code>，如果对上面的toy 例子使用这个属性，它所占内存将变为5。</p>
 <p>现在来看C++ 的类变量。如果类中有虚函数，那么C++会为每个类创建一个虚函数表(vtable),对于类的每个实例，C++都默认创建一个虚函数指针,放在对象的起始位置,如果在上面的toy中加入一个虚函数:</p>
-<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">toy</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">toy</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">b</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
@@ -143,11 +141,10 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"toy::foo"</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre>
-
+</code></pre>
 
 <p>在64位系统下，一个指针占用8字节，故上面的toy的大小是16字节(别忘了内存对齐),把上述类写成C语言的的伪代码就是:</p>
-<pre class="code literal-block"><span></span><span class="k">struct</span> <span class="n">toy</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">struct</span> <span class="nc">toy</span><span class="p">{</span>
     <span class="kt">void</span><span class="o">*</span> <span class="n">vtbl</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">b</span><span class="p">;</span>
@@ -155,11 +152,10 @@
 <span class="cm">/*虚函数表:</span>
 <span class="cm">vtbl---&gt;{toy::foo}</span>
 <span class="cm">*/</span>
-</pre>
-
+</code></pre>
 
 <p>比这更复杂的情况是，如果一个子类继承了带有虚函数的父类，那么它的大小是多少？如果是多重继承呢？比如下面这个例子：</p>
-<pre class="code literal-block"><span></span><span class="k">class</span> <span class="nc">Base1</span> <span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">class</span> <span class="nc">Base1</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Base1::foo"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -180,11 +176,10 @@
 <span class="k">class</span> <span class="nc">Derive</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base1</span><span class="p">,</span><span class="k">public</span> <span class="n">Base2</span><span class="p">{</span>
     <span class="kt">int</span> <span class="n">v</span><span class="p">;</span>
 <span class="p">};</span>
-</pre>
-
+</code></pre>
 
 <p>在这种情况下，现有C++编译的做法是父类中有几个带有虚函数就在子类中放置几个虚函数指针，每个指针分别指向一个夫类虚函数的地址，安装继承的声明顺序从前往后排列。根据这个规则，上面的 Derive 可以翻译成下面的伪代码:</p>
-<pre class="code literal-block"><span></span><span class="k">struct</span> <span class="n">Dervie</span><span class="p">{</span>
+<pre class="code literal-block"><span></span><code><span class="k">struct</span> <span class="nc">Dervie</span><span class="p">{</span>
     <span class="kt">void</span><span class="o">*</span> <span class="n">vtbl_base1</span><span class="c1">//指向Base1 的虚函数表</span>
     <span class="kt">void</span><span class="o">*</span> <span class="n">vtbl_base2</span><span class="c1">//指向Base2 的虚函数表</span>
     <span class="kt">int</span> <span class="n">v</span><span class="p">;</span>
@@ -193,12 +188,11 @@
 <span class="cm">vtabl_base1----&gt; {Base1::foo,Base1::foo2}</span>
 <span class="cm">vtabl_base2----&gt; {Base2::bar,Base2::bar2}</span>
 <span class="cm">*/</span>
-</pre>
-
+</code></pre>
 
 <p>既然虚函数表在对象的起始位置,那么我们应该可以通过读取对象的前8个字节（注意到在64位机器上指针是8个字节）来得到Base1的虚函数表地址，第9-16个字节来得到Base2的虚函数表地址。得到虚函数表地址后可以直接通过虚函数表来得到函数地址,进而调用这个函数：</p>
-<pre class="code literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<pre class="code literal-block"><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="nn">std</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Base1</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
@@ -222,7 +216,7 @@
 <span class="p">};</span>
 
 <span class="c1">//获取虚函数的地址</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span><span class="o">*</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="kt">void</span><span class="o">*</span>
 <span class="n">get_vfunc_addr</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">,</span><span class="kt">int</span> <span class="n">vtbl_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                 <span class="kt">int</span> <span class="n">func_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">){</span>
     <span class="c1">//获得 obj 的地址</span>
@@ -256,12 +250,11 @@
 <span class="cm">Base2::bar</span>
 <span class="cm">Base2::bar2</span>
 <span class="cm">*/</span>
-</pre>
-
+</code></pre>
 
 <p>在 <code>get_vfunc_addr</code> 这个函数里，我们先获得传入的对象的地址，由于指针大小是8个字节，我们把对象地址转换为int64_t类型的指针，然后在解引用时我们就得到了一个8字节大小的数据，它代表的是虚函数表的首地址，既然虚函数表中存储的函数指针，因此表中每个单元的大小也是8字节，因此我们再将首地址转换为int64_t类型的指针,这样解引用时我们就得到了8字节的函数指针，得到了函数指针，把它转换回原有函数类型，就可以调用这个函数了。</p>
 <p>获得虚函数似乎并没有用，因为在代码中我们总是可以利用指针和引用轻易调用虚函数。下面设想如果有一个类,我们需要修改它的某个属性,但是这个类并没有相应接口，如果这个属性恰好不是<code>public</code>的，C++中按常规办法是不能修改它了，但是利用对象的内存布局，我们完全可以<strong>绕过C++ 的访问限定规则，在类外部访问私有变量</strong>，比如下面的Student类中，我们要修改<code>name_</code>的值：</p>
-<pre class="code literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<pre class="code literal-block"><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="k">class</span> <span class="nc">Student</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -294,64 +287,56 @@
 <span class="cm">my name is Han mei mei</span>
 <span class="cm">my name is li lei</span>
 <span class="cm">*/</span>
-</pre>
-
+</code></pre>
 
 <p>在main函数的第一行，打印出Student的大小是16，由于name_的大小是8字节，因此它一定在第9-16个字节。我们通过指针地址对象t的首地址加上8个字节,即(p+8)，先得到<code>name_</code>的首地址，然后通过解引用得到了<code>name_</code>的值，最后把它转换回它原来的类型<code>char*</code>指针，这样我们就得到了Student的私有数据<code>name_</code>，得到这个指针过后要修改它就很容易了。</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
-<li>
-            <a class="fa fa-tags" href="../../categories/c%2B%2B/" rel="tag">c++</a>
-        </li>
+<li><a class="tag p-category" href="../../categories/c%2B%2B/" rel="tag">c++</a></li>
         </ul>
 <ul class="pager hidden-print">
-<li class="fa fa-book">
-                <a href="../chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" rel="prev" title="抽样方法(1)--随机数和简单随机抽样">前一篇: 抽样方法(1)--随机数和简单随机抽样</a>
+<li class="previous">
+                <a href="../chou-yang-fang-fa-1-sui-ji-shu-he-jian-dan-sui-ji-chou-yang/" rel="prev" title="抽样方法(1)--随机数和简单随机抽样">上一篇文章</a>
             </li>
-            <li class="fa fa-book">
-                <a href="../chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" rel="next" title="抽样方法(2)--拒绝抽样和高斯分布">后一篇: 抽样方法(2)--拒绝抽样和高斯分布</a>
+            <li class="next">
+                <a href="../chou-yang-fang-fa-2-cong-gao-si-fen-bu-shuo-qi/" rel="next" title="抽样方法(2)--拒绝抽样和高斯分布">下一篇文章</a>
             </li>
-        </ul></nav></aside><section class="comments"><script>
-var idcomments_acct = 'c1e905419bafc09e7b5cf91a7a3b1e66';
-var idcomments_post_id = "cache/posts/c++-dui-xiang-mo-xing.html";
-var idcomments_post_url = "https://blog.fangli.org/posts/c%2B%2B-dui-xiang-mo-xing/";
-</script><span id="IDCommentsPostTitle" style="display:none"></span>
-<script src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></section><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-     tex2jax: {
-         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-         processEscapes: true
-     },
-     Tex:{
-        equationNumbers: { autoNumber: "AMS" }
-     },
-     showMathMenu: false,
-     showMathMenuMISE:false,
-     messageStyle:"none",
-     displayAlign: 'center', // Change this to 'center' to center equations.
-     "HTML-CSS": {
-         styles: {'.MathJax_Display': {"margin": 0}},
-         linebreaks:{automatic:true,width:"container"}
-     },
-     SVG:{linebreaks:{automatic:true}}
- });
- </script></article>
-</div>
-    
-    <div class="footer-wrapper">
-        <div class="footer-inner">
-        <footer role="contentinfo"><p>Contents © 2020         <a href="mailto:golifang123@163.com">mklf</a>- Powered by Nikola theme hpstr         
- <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
- <img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><span id="busuanzi_container_site_pv">pv:<span id="busuanzi_value_site_pv"></span></span></p>
+        </ul></nav></aside><section class="comments hidden-print"><h2>评论</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="mklf-github-io",
+            disqus_url="https://mklf.github.io/posts/c%2B%2B-dui-xiang-mo-xing/",
+        disqus_title="C++ \u5bf9\u8c61\u6a21\u578b",
+        disqus_identifier="cache/posts/c++-dui-xiang-mo-xing.html",
+        disqus_config = function () {
+            this.language = "zh_cn";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="mklf-github-io";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+            Contents © 2021         <a href="mailto:fangli9@outlook.com">mklf</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
             
         </footer>
 </div>
-        
-    </div>
+</div>
 
-    
-<script>$("div.output_png > img").colorbox({html:function(){ return "<div><img src="+this.src+"></div>"} });</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="../../assets/js/scripts.min.js"></script>
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element){var i=element.getElementsByTagName('img')[0];return i===undefined?'':i.alt;}});
+    </script>
 </body>
 </html>
